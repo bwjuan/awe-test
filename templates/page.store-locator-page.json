@@ -1,0 +1,71 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-page",
+      "settings": {
+        "padding_top": 28,
+        "padding_bottom": 28
+      }
+    },
+    "73045b8b-5c13-4f1e-a9f2-b27a9c3e3574": {
+      "type": "store-locator-list",
+      "blocks": {
+        "d70b0e08-0385-4a7f-b79a-407dc8d16571": {
+          "type": "store",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/mechanic.png",
+            "title": "INSTALLER",
+            "key": "installer"
+          }
+        },
+        "2b747702-a9f8-48e4-a06d-007589d7ac87": {
+          "type": "store",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/car-retailer.png",
+            "title": "RETAILER",
+            "key": "retailer"
+          }
+        },
+        "5f3c4b61-868d-4fdf-960a-cb47485cd051": {
+          "type": "store",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/online-store.png",
+            "title": "ONLINE",
+            "key": "ecommerce"
+          }
+        },
+        "5b0fed66-9c61-43b8-b788-3ee3d2fc3fd9": {
+          "type": "store",
+          "settings": {
+            "image": "shopify:\/\/shop_images\/werehouse.png",
+            "title": "WEREHOUSE DISTRIBUTOR",
+            "key": "werehouse_distributor"
+          }
+        }
+      },
+      "block_order": [
+        "d70b0e08-0385-4a7f-b79a-407dc8d16571",
+        "2b747702-a9f8-48e4-a06d-007589d7ac87",
+        "5f3c4b61-868d-4fdf-960a-cb47485cd051",
+        "5b0fed66-9c61-43b8-b788-3ee3d2fc3fd9"
+      ],
+      "settings": {
+        "page": "bw-store-dealer-locator"
+      }
+    },
+    "d42f79a2-7e52-4e5a-8c7a-3a885bba73f7": {
+      "type": "custom-liquid",
+      "settings": {
+        "custom_liquid": "",
+        "color_scheme": "",
+        "padding_top": 40,
+        "padding_bottom": 52
+      }
+    }
+  },
+  "order": [
+    "main",
+    "73045b8b-5c13-4f1e-a9f2-b27a9c3e3574",
+    "d42f79a2-7e52-4e5a-8c7a-3a885bba73f7"
+  ]
+}

@@ -1,0 +1,94 @@
+{% style %}
+#section-{{ section.id }}{
+    max-width:1500px;
+    margin:0 auto;
+    display:grid;
+    grid-template-columns:1fr 1fr 1fr 1fr;
+    gap:20px;
+    
+}
+@media screen and (max-width:1064px){
+  #section-{{ section.id }}{
+    grid-template-columns:1fr 1fr;
+    padding:20px;
+  }
+}
+#section-{{ section.id }} .store{
+    display: flex;
+    cursor:pointer;
+    align-items:center;
+    justify-content:center;
+    padding:40px;
+    aspect-ratio:1;
+    background-size:cover;
+}
+#section-{{ section.id }} .store:hover{
+    box-shadow:1px 1px 10px grey;
+}
+#section-{{ section.id }} .store h2{
+color:white;
+font-weight:1000;
+text-align:center
+}
+
+{% endstyle %}
+
+<section id="section-{{ section.id }}">
+  {% for block in section.blocks %}
+    
+    <div class="store" data-store-url="/pages/{{ section.settings.page }}?key={{ block.settings.key }}" style="background-image:url({{ block.settings.image | image_url }})">
+      <h2>{{ block.settings.title }}</h2>
+    </div>
+  {% endfor %}
+</section>
+<script>
+
+ 
+</script>
+{% schema %}
+{
+  "name": "Add Store Locator",
+
+  "settings": [
+    {
+      "type": "header",
+      "content": "Store locator"
+    },
+    {
+      "type": "page",
+      "id": "page",
+      "label": "Page"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "store",
+      "name": "Store Locator",
+      "limit": 5,
+      "settings": [
+        {
+          "type": "image_picker",
+          "id": "image",
+          "label": "image"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+       
+        {
+          "type": "text",
+          "id": "key",
+          "label": "Key"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Add Locator Card"
+    }
+  ]
+}
+{% endschema %}

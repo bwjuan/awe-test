@@ -1,0 +1,147 @@
+<div class="wrapper locator-close"></div>
+<svg
+  class="locator-close locator-close-btn"
+  xmlns="http://www.w3.org/2000/svg"
+  width="25.414"
+  height="25.414"
+  viewBox="0 0 25.414 25.414"
+>
+  <g id="Group_32930" data-name="Group 32930" transform="translate(0.707 0.707)">
+    <line id="Line_56" data-name="Line 56" x1="24" y2="24" fill="none" stroke="#FFF" stroke-width="2"></line>
+    <line id="Line_57" data-name="Line 57" x2="24" y2="24" fill="none" stroke="#FFF" stroke-width="2"></line>
+  </g>
+</svg>
+<form class="locator-form" id="dealer-locator-form">
+  <div class="basic-information">
+    <div class="control">
+      <label>Business Name</label>
+      <input name="business">
+    </div>
+    <div class="control">
+      <label>Your First Name</label>
+      <input name="firstname">
+    </div>
+    <div class="control">
+      <label>Your Last Name</label>
+      <input name="lastname">
+    </div>
+    <div class="control">
+      <label>Your Email Address</label>
+      <input name="email">
+    </div>
+    <div class="control">
+      <label>Your Phone Number</label>
+      <input name="phonenumber">
+    </div>
+    <div class="control">
+      <label>Business Address</label>
+      <input name="business_address">
+    </div>
+  </div>
+  <div class="checkbox-container">
+    <div class="control">
+      <strong>Business Type</strong>
+      <div class="input-checkbox">
+        We do installs<input name="business_type" type="radio"><span class="checkmark"></span>
+      </div>
+      <div class="input-checkbox">
+        We do in-store pick ups<input name="business_type" type="radio"><span class="checkmark"></span>
+      </div>
+      <div class="input-checkbox">
+        We sell online <input name="business_type" type="radio"><span class="checkmark"></span>
+      </div>
+      <div class="input-checkbox">
+        We sell over the counter <input name="business_type" type="radio"><span class="checkmark"></span>
+      </div>
+    </div>
+    <div class="control">
+      <strong>Specialty</strong>
+      <div class="input-checkbox">
+        Modern Muscle<input name="specialty" type="radio"><span class="checkmark"></span>
+      </div>
+      <div class="input-checkbox">
+        Sport Compact <input name="specialty" type="radio"><span class="checkmark"></span>
+      </div>
+      <div class="input-checkbox">European <input name="specialty" type="radio"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Truck <input name="specialty" type="radio"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Jeep <input name="specialty" type="radio"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Exotic <input name="specialty" type="radio"><span class="checkmark"></span></div>
+    </div>
+  </div>
+
+  <button type="submit"><span>Send</span></button>
+</form>
+<form class="locator-form" id="general-contact-form" onsubmit="contactForm(event)">
+  <div class="basic-information">
+    <div class="control">
+      <label for="contact[first_name]">Your First Name <span style="color:red">*</span></label>
+      <input name="contact[first_name]" required>
+    </div>
+    <div class="control">
+      <label for="contact[last_name]">Your Last Name <span style="color:red">*</span></label>
+      <input name="contact[last_name]" required>
+    </div>
+    <div class="control">
+      <label for="contact[email]">Your Email Address <span style="color:red">*</span></label>
+      <input name="contact[email]" required>
+    </div>
+    <div class="control">
+      <label for="contact[phone]">Phone Number <span style="color:red">*</span></label>
+      <input name="contact[phone]" required>
+    </div>
+    <div class="control">
+      <label for="contact[state]">State <span style="color:red">*</span></label>
+      <input name="contact[state]" required>
+    </div>
+    <div class="control">
+      <label for="contact[postal_code]">Postal Code <span style="color:red">*</span></label>
+      <input name="contact[postal_code]" required>
+    </div>
+    <div class="control">
+      <label for="contact[country]">Country <span style="color:red">*</span></label>
+      <input name="contact[country]" required>
+    </div>
+  </div>
+
+  <label class="vehicle-information">Vehicle Information <span style="color:red">*</span></label>
+  <div class="vehicles">
+    <div class="control">
+      <label for="contact[vehicle_make]">Make</label>
+      <select id="make" name="contact[vehicle_make]" onchange="makeFc(this)">
+        <option>Please Select</option>
+      </select>
+    </div>
+    <div class="control">
+      <label for="contact[vehicle_model]">Model</label>
+      <select name="contact[vehicle_model]" id="model" onchange="modelFc(this)"></select>
+    </div>
+    <div class="control">
+      <label for="contact[vehicle_year]">Year</label>
+      <select name="contact[vehicle_year]" id="year" onchange="yearFc(this)"></select>
+    </div>
+    <div class="control">
+      <label for="contact[vehicle_submodel]">Submodel</label>
+      <select name="contact[vehicle_submodel]" id="submodel" onchange="submodelFc(this)"></select>
+    </div>
+    <div class="control">
+      <label for="contact[vehicle_engine]">Engine</label>
+      <select name="contact[vehicle_engine]" id="engine" onchange="engineFc(this)"></select>
+    </div>
+    <div class="control">
+      <label for="contact[vehicle_transmission]">Transmission</label>
+      <select name="contact[vehicle_transmission]" id="transmission" onchange="transmissionFc(this)"></select>
+    </div>
+  </div>
+  <div class="control">
+    <label form="contact[body]">Your Comment</label>
+    <textarea name="contact[body]" rows="5"></textarea>
+  </div>
+  <div class="control marginTop">
+    <div class="input-checkbox">
+      <input name="contact[privacy_policy]" type="checkbox" required><span class="checkmark"></span> I agree to the AWE
+      Privacy Policy ? <span style="color:red">*</span>
+    </div>
+  </div>
+  <button type="submit"><span>Send</span></button>
+</form>
+
