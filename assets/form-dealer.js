@@ -53,7 +53,13 @@
       })
       .catch((error) => console.log("error", error));
   });
+  
   function makeFc(event) {
+    
+    event.querySelector('#please-select').remove();
+    document.querySelector('.vehicles').style.border = "none"
+    document.querySelector('.vehicles').style.backgroundColor = "none"
+    document.querySelector('.vehicles').style.padding = "0";
     var graphql = JSON.stringify({
       query:
         "query (\n  $withAllMakes: Boolean!\n  $withAllModels: Boolean!\n  $withAllYears: Boolean!\n  $withAllSubmodels: Boolean!\n  $withAllEngines: Boolean!\n  $withAllTransmissions: Boolean!\n  $uvdb_year_id: Int\n  $uvdb_make_id: ID!\n  $uvdb_model_id: ID!\n  $uvdb_submodel_id: ID!\n  $uvdb_engine_definition_id: ID!\n) {\n  uvdb {\n    allMakes: search_uvdb_makes(limit: 2000, vehicle_type: Default)\n      @include(if: $withAllMakes) {\n      items {\n        id\n        name\n      }\n    }\n    allModels: search_uvdb_models(limit: 2000, uvdb_make_id: $uvdb_make_id)\n      @include(if: $withAllModels) {\n      items {\n        id\n        name\n      }\n    }\n    allYears: search_uvdb_years(\n      limit: 2000\n      uvdb_make_id: $uvdb_make_id\n      uvdb_model_id: $uvdb_model_id\n    ) @include(if: $withAllYears) {\n      items {\n        id\n      }\n    }\n    allSubmodels: uvdb_additional_options(\n      vehicle_instance: {\n        uvdb_make_id: $uvdb_make_id\n        uvdb_model_id: $uvdb_model_id\n        uvdb_year_id: $uvdb_year_id\n      }\n      type: UvdbSubmodel\n    ) @include(if: $withAllSubmodels) {\n      suggestion_type\n      uvdb_dynamic_options {\n        id\n        name\n      }\n    }\n    allEngines: uvdb_additional_options(\n      vehicle_instance: {\n        uvdb_make_id: $uvdb_make_id\n        uvdb_model_id: $uvdb_model_id\n        uvdb_year_id: $uvdb_year_id\n        uvdb_submodel_id: $uvdb_submodel_id\n      }\n      type: UvdbEngineBase\n    ) @include(if: $withAllEngines) {\n      suggestion_type\n      uvdb_dynamic_options {\n        id\n        name\n      }\n    }\n    allTransmissions: uvdb_additional_options(\n      vehicle_instance: {\n        uvdb_make_id: $uvdb_make_id\n        uvdb_model_id: $uvdb_model_id\n        uvdb_year_id: $uvdb_year_id\n        uvdb_submodel_id: $uvdb_submodel_id\n        uvdb_engine_definition_id: $uvdb_engine_definition_id\n      }\n      type: UvdbTransmissionControlType\n    ) @include(if: $withAllTransmissions) {\n      suggestion_type\n      uvdb_dynamic_options {\n        id\n        name\n      }\n    }\n  }\n}\n",
@@ -265,7 +271,15 @@
   function contactForm(event) {
     event.preventDefault();
 
-    console.log(event.target.elements["contact[vehicle_make]"]);
+    const make = event.target.elements["contact[vehicle_make]"]
+   
+    if(make.selectedIndex == 0)
+    {
+        document.querySelector('.vehicles').style.border = "1px solid red";
+        document.querySelector('.vehicles').style.backgroundColor = "#ff00000a";
+        document.querySelector('.vehicles').style.padding = "20px";
+        return false;
+    }
     var formdata = new FormData();
 
     for (let key of event.target.elements) {

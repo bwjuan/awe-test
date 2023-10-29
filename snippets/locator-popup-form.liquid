@@ -106,9 +106,9 @@
   <label class="vehicle-information">Vehicle Information <span style="color:red">*</span></label>
   <div class="vehicles">
     <div class="control">
-      <label for="contact[vehicle_make]">Make</label>
-      <select id="make" name="contact[vehicle_make]" onchange="makeFc(this)">
-        <option>Please Select</option>
+      <label for="contact[vehicle_make]" >Make</label>
+      <select id="make" name="contact[vehicle_make]" required onchange="makeFc(this)">
+        <option id="please-select">Please Select</option>
       </select>
     </div>
     <div class="control">
