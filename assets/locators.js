@@ -127,13 +127,18 @@ class Locator {
                 var link = document.createElement("div");
                 link.className = "contact-us-popup";
                 link.innerText = `Contact`;
-                link.addEventListener("click", () => {
+               
+                link.addEventListener("click", (e) => {
                   document.querySelector(".popup-locator-form").style.display =
                     "flex";
+                    document.querySelector(".popup-locator-form #dealer-name").innerText = e.target.getAttribute('data-store-name') 
                 });
 
                 Locator.showForm(param);
-                setTimeout(()=>document.querySelector(".table-store-marker").appendChild(link),1000)
+                setTimeout(()=>{
+                  link.setAttribute('data-store-name',document.querySelector(".table-store-marker .store-name").innerText);
+                  document.querySelector(".table-store-marker").appendChild(link)
+                },1000)
               
             
           }

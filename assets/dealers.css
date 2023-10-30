@@ -295,6 +295,15 @@
   outline: none;
   box-shadow: 1px 1px 10px #0000005e;
 }
+.popup-locator-form .locator-form #dealer-name{
+  color:#b82121;
+}
+.popup-locator-form .locator-form .alert-success{
+  display: none;
+  background: #a5ffa5;
+  color: #024702;
+  padding: 10px;
+}
 .locator-close-btn {
   position: absolute;
   right: 23%;

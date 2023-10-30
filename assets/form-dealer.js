@@ -56,7 +56,7 @@
   
   function makeFc(event) {
     
-    event.querySelector('#please-select').remove();
+    event.querySelector('#please-select').disabled = true;
     document.querySelector('.vehicles').style.border = "none"
     document.querySelector('.vehicles').style.backgroundColor = "none"
     document.querySelector('.vehicles').style.padding = "0";
@@ -270,7 +270,7 @@
   }
   function contactForm(event) {
     event.preventDefault();
-
+    let $form = document.querySelector('#general-contact-form')
     const make = event.target.elements["contact[vehicle_make]"]
    
     if(make.selectedIndex == 0)
@@ -298,7 +298,29 @@
       requestOptions
     )
       .then((response) => response.text())
-      .then((result) => console.log(result))
+      .then((result) => {
+        console.log(result)
+        
+        $form.querySelector('.alert-success').style.display = 'block';
+        $form.querySelector('[type=submit]').style.display = 'none';
+        setTimeout(() => {
+            document.querySelector('.popup-locator-form').style.display = "none";
+            $form.reset();
+            $form.querySelector('.alert-success').style.display = 'none';
+            $form.querySelector('[type=submit]').style.display = 'block';
+            document.querySelector('#please-select').disabled = false;
+            document.getElementById('make').selectedIndex = 0;
+            document.querySelector("#model").innerHTML = "";
+            document.querySelector("#submodel").innerHTML = "";
+            document.querySelector("#engine").innerHTML = "";
+            document.querySelector("#year").innerHTML = "";
+            document.querySelector("#engine").innerHTML = "";
+            document.querySelector("#transmission").innerHTML = "";
+            
+
+        },4000)
+
+        })
       .catch((error) => console.log("error", error));
   }
 
