@@ -44,6 +44,7 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+  font-family: "Bebas Neue";
 }
 .item-content {
   display: none;
@@ -208,6 +209,9 @@
   align-items: center;
   justify-content: center;
 }
+.popup-locator-form .locator-form h2{
+  font-family: "Bebas Neue";
+}
 .popup-locator-form .locator-form {
   position: relative;
   background: white;
@@ -222,6 +226,10 @@
   flex-direction: column;
   font-family: "Bebas Neue";
   flex: 1;
+}
+.popup-locator-form .locator-form .control.vehicles serviced{
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
 }
 .popup-locator-form .locator-form .basic-information {
   display: grid;
@@ -290,6 +298,10 @@
   background-color: #470d10;
 
   transition: all linear 0.2s;
+}
+.popup-locator-form .locator-form [type="submit"]:disabled{
+  background-color: #232323;
+  cursor: auto;
 }
 .popup-locator-form .locator-form .control input:focus {
   outline: none;

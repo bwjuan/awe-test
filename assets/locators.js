@@ -55,11 +55,10 @@ class Locator {
           }
 
           element.parentElement.click();
-          setTimeout(()=>{
-            Locator.bindingDetail(param)
+          setTimeout(() => {
+            Locator.bindingDetail(param);
             Locator.bindingPopupInMap(param);
-          },1000)
-          
+          }, 1000);
         });
         $tagElements.appendChild($tagItem);
         return;
@@ -119,68 +118,74 @@ class Locator {
           if (param === "ecommerce") {
             document.querySelector(".popup-locator-form").style.display =
               "flex";
-          }
-          else{
-            if(document.querySelector('.contact-us-popup')){
-              document.querySelector('.contact-us-popup').remove();
-            }
-                var link = document.createElement("div");
-                link.className = "contact-us-popup";
-                link.innerText = `Contact`;
-               
-                link.addEventListener("click", (e) => {
-                  document.querySelector(".popup-locator-form").style.display =
-                    "flex";
-                    document.querySelector(".popup-locator-form #dealer-name").innerText = e.target.getAttribute('data-store-name') 
-                });
+              document.getElementById("general-contact-form").style.display = "block";
+          } else {
+            var link = document.createElement("div");
+            link.className = "contact-us-popup";
+            link.innerText = `Contact`;
 
-                Locator.showForm(param);
-                setTimeout(()=>{
-                  link.setAttribute('data-store-name',document.querySelector(".table-store-marker .store-name").innerText);
-                  document.querySelector(".table-store-marker").appendChild(link)
-                },1000)
-              
-            
+            link.addEventListener("click", (e) => {
+              document.querySelector(".popup-locator-form").style.display =
+                "flex";
+              document.querySelector(
+                ".popup-locator-form #dealer-name"
+              ).innerText = e.target.getAttribute("data-store-name");
+            });
+
+            Locator.showForm(param);
+            setTimeout(() => {
+              if (
+                document.querySelector(".table-store-marker .contact-us-popup")
+              ) {
+                document
+                  .querySelector(".table-store-marker .contact-us-popup")
+                  .remove();
+              }
+              link.setAttribute(
+                "data-store-name",
+                document.querySelector(".table-store-marker .store-name")
+                  .innerText
+              );
+              document.querySelector(".table-store-marker").appendChild(link);
+            }, 1000);
           }
         });
       });
   }
- 
+
   static bindingPopupInMap(locator_type) {
-    
     document
       .querySelectorAll('.bootstrap-storeifyapps [role="button"]')
       .forEach((element) => {
-      
-          element.addEventListener("click", () => {
-            if(document.querySelector('.contact-us-popup')){
-              document.querySelector('.contact-us-popup').remove();
-            }
-            var link = document.createElement("div");
-            link.className = "contact-us-popup";
-            link.innerText = `Contact`;
-            link.addEventListener("click", () => {
-              document.querySelector(".popup-locator-form").style.display =
-                "flex";
-          
-                Locator.showForm(locator_type)
-            });
-            document.querySelector(".table-store-marker").appendChild(link);
+        element.addEventListener("click", () => {
+          if (document.querySelector(".table-store-marker .contact-us-popup")) {
+            document
+              .querySelector(".table-store-marker .contact-us-popup")
+              .remove();
+          }
+          var link = document.createElement("div");
+          link.className = "contact-us-popup";
+          link.innerText = `Contact`;
+          link.addEventListener("click", () => {
+            document.querySelector(".popup-locator-form").style.display =
+              "flex";
+
+            Locator.showForm(locator_type);
           });
-        
-    
+          document.querySelector(".table-store-marker").appendChild(link);
+        });
       });
   }
-  static showForm(param){
+  static showForm(param) {
     switch (param) {
       case "installer":
-         document.getElementById("general-contact-form").style.display = 'block'
+        document.getElementById("general-contact-form").style.display = "block";
         break;
-        case "retailer":
-          document.getElementById("general-contact-form").style.display = 'block'
-         break;
-         case "distributor":
-          document.getElementById("dealer-locator-form").style.display = 'block'
+      case "retailer":
+        document.getElementById("general-contact-form").style.display = "block";
+        break;
+      case "distributor":
+        document.getElementById("dealer-locator-form").style.display = "block";
       default:
         break;
     }

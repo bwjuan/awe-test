@@ -11,64 +11,141 @@
     <line id="Line_57" data-name="Line 57" x2="24" y2="24" fill="none" stroke="#FFF" stroke-width="2"></line>
   </g>
 </svg>
-<form class="locator-form" id="dealer-locator-form">
+<form class="locator-form" id="dealer-locator-form" onsubmit="dealerForm(event)">
+  <h2>I am interested in:</h2>
+  <div class="aim-interested">
+
+    <div class="input-checkbox">AWE European Performance Line <input name="contact[interest]" type="checkbox" value="AWE European Performance Line"><span class="checkmark"></span></div>
+    <div class="input-checkbox">AWE Modern Muscle Performance Line <input name="contact[interest]" type="checkbox" value="AWE Modern Muscle Performance Line"><span class="checkmark"></span></div>
+    <div class="input-checkbox">AWE Sport Compact Performance Line <input name="contact[interest]" type="checkbox" value="AWE Sport Compact Performance Line"><span class="checkmark"></span></div>
+    <div class="input-checkbox">AWE Offroad and Truck Performance Line <input name="contact[interest]" type="checkbox" value="AWE Offroad and Truck Performance Line"><span class="checkmark"></span></div>
+  </div>
+  <h2>The Basics:</h2>
   <div class="basic-information">
+    <div>
     <div class="control">
-      <label>Business Name</label>
-      <input name="business">
+      <label>Business Address <span style="color:red">*</span></label>
+      <input name="contact[business_name]" required>
+    </div>
+    
+    <div class="control">
+      <label>Street Address</label>
+      <input name="contact[street_address]">
     </div>
     <div class="control">
-      <label>Your First Name</label>
-      <input name="firstname">
+      <label>Street Address 2</label>
+      <input name="contact[street_address_2]">
     </div>
     <div class="control">
-      <label>Your Last Name</label>
-      <input name="lastname">
+      <label>City <span style="color:red">*</span></label>
+      <input name="contact[city]" required>
     </div>
     <div class="control">
-      <label>Your Email Address</label>
-      <input name="email">
+      <label>State <span style="color:red">*</span></label>
+      <input name="contact[state]" required>
     </div>
     <div class="control">
-      <label>Your Phone Number</label>
-      <input name="phonenumber">
+      <label>Zip Code <span style="color:red">*</span></label>
+      <input name="contact[zip_code]" required>
     </div>
     <div class="control">
-      <label>Business Address</label>
-      <input name="business_address">
+      <label>Country <span style="color:red">*</span></label>
+      <input name="contact[country]" required>
+    </div>
+    </div>
+    <div>
+      <div class="control">
+        <label>Firs Name <span style="color:red">*</span></label>
+        <input name="contact[first_name]" required>
+      </div>
+      <div class="control">
+        <label>Last Name <span style="color:red">*</span></label>
+        <input name="contact[last_name]" required>
+      </div>
+      <div class="control">
+        <label>Title <span style="color:red">*</span></label>
+        <input name="contact[title]" required>
+      </div>
+      <div class="control">
+        <label>Email <span style="color:red">*</span></label>
+        <input name="contact[email]" required>
+      </div>
+      <div class="control">
+        <label>Authorized Contact <span style="color:red">*</span></label>
+        <input name="contact[authorized_contact]" required>
+      </div>
+      <div class="control">
+        <label>Website <span style="color:red">*</span></label>
+        <input name="contact[website]" required>
+      </div>
+      <div class="control">
+        <label>Phone <span style="color:red">*</span></label>
+        <input name="contact[phone]" required>
+      </div>
     </div>
   </div>
-  <div class="checkbox-container">
-    <div class="control">
+  <h2>About The Business</h2>
+  
+  
+    <div class="control checkbox-container">
       <strong>Business Type</strong>
       <div class="input-checkbox">
-        We do installs<input name="business_type" type="radio"><span class="checkmark"></span>
+        We do installs<input name="contact[business-type]" type="checkbox" value="We do installs"><span class="checkmark"></span>
       </div>
       <div class="input-checkbox">
-        We do in-store pick ups<input name="business_type" type="radio"><span class="checkmark"></span>
+        We do in-store pick ups<input name="contact[business-type]" type="checkbox" value="We do installs"><span class="checkmark"></span>
       </div>
       <div class="input-checkbox">
-        We sell online <input name="business_type" type="radio"><span class="checkmark"></span>
+        We sell online <input name="contact[business-type]" type="checkbox" value="We do installs"><span class="checkmark"></span>
       </div>
       <div class="input-checkbox">
-        We sell over the counter <input name="business_type" type="radio"><span class="checkmark"></span>
+        We sell over the counter <input name="contact[business-type]" type="checkbox" value="We do installs"><span class="checkmark"></span>
       </div>
     </div>
     <div class="control">
-      <strong>Specialty</strong>
-      <div class="input-checkbox">
-        Modern Muscle<input name="specialty" type="radio"><span class="checkmark"></span>
-      </div>
-      <div class="input-checkbox">
-        Sport Compact <input name="specialty" type="radio"><span class="checkmark"></span>
-      </div>
-      <div class="input-checkbox">European <input name="specialty" type="radio"><span class="checkmark"></span></div>
-      <div class="input-checkbox">Truck <input name="specialty" type="radio"><span class="checkmark"></span></div>
-      <div class="input-checkbox">Jeep <input name="specialty" type="radio"><span class="checkmark"></span></div>
-      <div class="input-checkbox">Exotic <input name="specialty" type="radio"><span class="checkmark"></span></div>
+    <strong>Primary vehicles serviced (select all that apply)</strong>
     </div>
-  </div>
+    <div class="control vehicles serviced">
 
+      <div class="input-checkbox">Audi <input name="contact[vehicles-serviced]" type="checkbox" value="Audi"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Chevrolet (cars) <input name="contact[vehicles-serviced]" type="checkbox" value="Chevrolet (cars)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Ford (cars) <input name="contact[vehicles-serviced]" type="checkbox" value="Ford (cars)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Jeep <input name="contact[vehicles-serviced]" type="checkbox" value="Jeep"><span class="checkmark"></span></div>
+      <div class="input-checkbox">MINI <input name="contact[vehicles-serviced]" type="checkbox" value="MINI"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Subaru <input name="contact[vehicles-serviced]" type="checkbox" value="Subaru"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Volkswagen <input name="contact[vehicles-serviced]" type="checkbox" value="Volkswagen"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Bentley <input name="contact[vehicles-serviced]" type="checkbox" value="Bentley"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Chevrolet (trucks) <input name="contact[vehicles-serviced]" type="checkbox" value="Chevrolet (trucks)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Ford (trucks) <input name="contact[vehicles-serviced]" type="checkbox" value="Ford (trucks)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">McLaren <input name="contact[vehicles-serviced]" type="checkbox" value="McLaren"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Porsche <input name="contact[vehicles-serviced]" type="checkbox" value="Porsche"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Toyota (cars) <input name="contact[vehicles-serviced]" type="checkbox" value="Toyota (cars)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">BMW <input name="contact[vehicles-serviced]" type="checkbox" value="BMW"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Dodge (cars) <input name="contact[vehicles-serviced]" type="checkbox" value="Dodge (cars)"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Mercedes-Benz <input name="contact[vehicles-serviced]" type="checkbox" value="Mercedes-Benz"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Honda <input name="contact[vehicles-serviced]" type="checkbox" value="Honda"><span class="checkmark"></span></div>
+      <div class="input-checkbox">RAM Trucks <input name="contact[vehicles-serviced]" type="checkbox" value="RAM Trucks"><span class="checkmark"></span></div>
+      <div class="input-checkbox">Toyota (trucks) <input name="contact[vehicles-serviced]" type="checkbox" value="Toyota (trucks)"><span class="checkmark"></span></div>
+      
+      
+    </div>
+  
+  <div class="control">
+    <strong>Currently, the top 10 brands of aftermarket parts you sell are: *</strong>
+    <textarea rows="5" name="contact[top-10]"  required="" placeholder=""></textarea>
+  </div>
+  <div class="control">
+    <strong>If you need a specific part right now, what part ? *</strong>
+    <textarea rows="5" name="contact[parts-needed-now]"  required="" placeholder=""></textarea>
+  </div>
+  <div class="control">
+    <strong>Additional Comments *</strong>
+    <textarea rows="5" name="contact[additional-comments]"  required="" placeholder=""></textarea>
+  </div>
+  <div class="control" style="margin-top:15px">
+  <div class="input-checkbox"><input name="contact[privacy-policy]" type="checkbox" value="AWE European Performance Line"><span class="checkmark"></span> I agree to the AWE Privacy Policy</div>
+  </div>
+  <div class="alert-success">Thanks for contacting us. We'll get back to you as soon as possible.</div>
   <button type="submit"><span>Send</span></button>
 </form>
 <form class="locator-form" id="general-contact-form" onsubmit="contactForm(event)">
